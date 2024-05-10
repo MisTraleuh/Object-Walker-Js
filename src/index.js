@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { parseArgs } from './parsing/parseArgs.js';
 import { checkArgs } from './parsing/checkArgs.js';
 import { Colors } from './utils/colors.js';

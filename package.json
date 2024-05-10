@@ -3,12 +3,16 @@
     "scripts": {
         "start": "node ./src/index.js --help"
     },
+    "bin": {
+        "object-walker-js": "./src/index.js"
+    },
     "name": "object-walker-js",
     "version": "1.0.0",
     "description": "Object-Walker-Js is a simple command that lets you search for any object in any other object. Without dependencies, it is a simple and efficient tool to search for objects in objects.",
-    "main": "src/index.js",
-    "dependencies": {},
-    "devDependencies": {},
+    "main": "./src/index.js",
+    "dependencies": {
+        "object-walker-js": "^1.0.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MisTraleuh/Object-Walker-Js.git"
