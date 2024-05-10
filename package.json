@@ -1,0 +1,11 @@
+{
+    "type": "module",
+    "_moduleAliases": {
+        "@root": ".",
+        "@utils": "./src/utils",
+        "@parsing": "./src/parsing"
+    },
+    "scripts": {
+        "start": "node ./src/index.js --help"
+    }
+}
