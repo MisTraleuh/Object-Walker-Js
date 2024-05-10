@@ -2,7 +2,7 @@
 
 ## Description 📝
 
-ObjectWalker is a simple library that allows you to walk through an object and execute a callback function for each key-value pair.
+Object-Walker-Js is a simple command that lets you search for any object in any other object. Without dependencies, it is a simple and efficient tool to search for objects in objects.
 
 ## Installation 📦
 
