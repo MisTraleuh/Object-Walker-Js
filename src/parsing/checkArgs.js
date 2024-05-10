@@ -4,7 +4,6 @@ import { messageError, messageSuccess, messageWarning } from '../utils/messages.
 const validArgs = [
     "type",
     "target",
-    "targetCustom",
     "targetType",
     "depth",
 ];
