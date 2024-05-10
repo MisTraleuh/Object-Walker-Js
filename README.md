@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/object-walker-js.svg)](https://www.npmjs.com/package/object-walker-js)
 [![npm](https://img.shields.io/npm/dm/object-walker-js.svg)](https://npmcharts.com/compare/object-walker-js?minimal=true)
 [![GitHub license](https://img.shields.io/github/license/MisTraleuh/object-walker-js.svg)](https://github.com/MisTraleuh/object-walker-js/blob/master/LICENSE)
-[![Build Status](https://github.com/MisTraleuh/object-walker-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/MisTraleuh/object-walker-js/actions)
+[![Build Status](https://github.com/MisTraleuh/object-walker-js/actions/workflows/buildPackage.yml/badge.svg)](https://github.com/MisTraleuh/object-walker-js/actions)
 
 ## Description 📝
 
