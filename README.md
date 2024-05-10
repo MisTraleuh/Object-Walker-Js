@@ -6,19 +6,27 @@ Object-Walker-Js is a simple command that lets you search for any object in any 
 
 ## Installation 📦
 
+### Library 📚
+
 ```bash
 $ npm install object-walker-js
+[...]
+$ ./node_modules/.bin/object-walker-js --help
+Usage: node index.js [options]
+Options:
+    --h, --help         Display help
+    --type              Type of source object
+    --target            Target object
+    --targetType        Target type of object target
+    --depth             Depth of the search
 ```
 
-## Usage 🚀
+### Binary 📦
 
-```sh
-$ npm run start
-
-> start
-> node ./src/index.js --help
-
-
+```bash
+$ sudo npm install -g object-walker-js
+[...]
+$ object-walker-js --help
 Usage: node index.js [options]
 Options:
     --h, --help         Display help
