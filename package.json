@@ -7,7 +7,7 @@
         "object-walker-js": "./src/index.js"
     },
     "name": "object-walker-js",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Object-Walker-Js is a simple command that lets you search for any object in any other object. Without dependencies, it is a simple and efficient tool to search for objects in objects.",
     "main": "./src/index.js",
     "dependencies": {
