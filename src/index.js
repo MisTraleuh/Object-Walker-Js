@@ -10,14 +10,16 @@ import { messageInfo, messageSuccess } from './utils/messages.js';
  * Main function of the program.
  * @returns {void} Nothing.
 */
-function main() {
+async function main() {
     let ARGS = parseArgs();
     checkArgs(ARGS);
-    const { type, target, targetType, depth } = createObject(ARGS);
-    messageInfo(`--- Properties and methods of ${String(ARGS.type)} ---`);
+    const { type, target, targetType, depth } = await createObject(ARGS);
     const visited = new WeakSet();
     const name = ARGS.type;
     const uniqueProps = listObject(type, target, targetType, depth, visited, name);
+
+
+    messageInfo(`--- Properties and methods of ${String(ARGS.type)} ---`);
     uniqueProps.forEach(prop => {
         messageSuccess(prop);
     });

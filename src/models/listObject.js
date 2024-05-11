@@ -1,3 +1,4 @@
+import { messageWarning } from "../utils/messages.js";
 
 const uniqueProps = new Set();
 
@@ -45,26 +46,33 @@ export function listObject(startType, target, targetType, depth, visited, name) 
 
     visited.add(currentObj);
 
-    while (currentObj) {
-        Object.getOwnPropertyNames(currentObj).forEach(prop => {
-            // Disable ES6+ error
-            if (prop === 'caller' || prop === 'callee' || prop === 'arguments') {
-                return;
-            }
-            if (prop === target && typeof currentObj[prop] === targetType) {
-                uniqueProps.add(`${String(name)}.${target}`);
-            }
+    while (currentObj !== null && currentObj !== undefined) {
+        try {
 
-            const propertyValue = currentObj[prop];
-    
-            if ((typeof propertyValue === 'object' || typeof propertyValue === 'function') 
-                && propertyValue !== null
+            Object.getOwnPropertyNames(currentObj).forEach(prop => {
+                // Disable ES6+ error
+                if (prop === 'caller' || prop === 'callee' || prop === 'arguments') {
+                    return;
+                }
+                
+                if (prop === target && typeof currentObj[prop] === targetType) {
+                    uniqueProps.add(`${String(name)}.${target}`);
+                }
+                
+                const propertyValue = currentObj[prop];
+                
+                if ((typeof propertyValue === 'object' || typeof propertyValue === 'function') 
+                    && propertyValue !== null
                 && propertyValue !== startType
             ) {
                 listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`)
             }
         });
         currentObj = Object.getPrototypeOf(currentObj);
+        } catch (error) {
+            messageWarning(error);
+            return;
+        }
     }
 
     return uniqueProps;
