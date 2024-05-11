@@ -19,11 +19,13 @@ $ npm install object-walker-js
 $ ./node_modules/.bin/object-walker-js --help
 Usage: node index.js [options]
 Options:
-    --h, --help         Display help
-    --type              Type of source object
-    --target            Target object
-    --targetType        Target type of object target
-    --depth             Depth of the search
+    --h, --help           Display help
+    --type                Type of source object
+    --target              Target object
+    --targetType          Target type of object target, must be:
+                          object, function, string, number, boolean, symbol, bigint
+    --depth               Depth of the search (default: 5)
+    --disable-TypeError   Disable TypeError message
 ```
 
 ### Binary 📦
@@ -34,11 +36,13 @@ $ sudo npm install -g object-walker-js
 $ object-walker-js --help
 Usage: node index.js [options]
 Options:
-    --h, --help         Display help
-    --type              Type of source object
-    --target            Target object
-    --targetType        Target type of object target
-    --depth             Depth of the search
+    --h, --help           Display help
+    --type                Type of source object
+    --target              Target object
+    --targetType          Target type of object target, must be:
+                          object, function, string, number, boolean, symbol, bigint
+    --depth               Depth of the search (default: 5)
+    --disable-TypeError   Disable TypeError message
 ```
 
 ## Exemple 🎁
