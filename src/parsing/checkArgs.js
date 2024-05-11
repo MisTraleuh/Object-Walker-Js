@@ -1,5 +1,5 @@
 import { displayHelp } from '../utils/displayHelp.js';
-import { messageError, messageSuccess, messageWarning } from '../utils/messages.js';
+import { messageError, messageWarning } from '../utils/messages.js';
 
 const validArgs = [
     "type",
@@ -18,6 +18,18 @@ const validTypes = [
     "bigint",
 ];
 
+/**
+ * Checks if the parsed arguments are valid.
+ * @param {Object} ARGS The arguments parsed, returned from parseArgs().
+ * @returns {void} Nothing.
+ * @example
+ * const ARGS = parseArgs();
+ * checkArgs(ARGS);
+ * @description
+ * This function will check if the parsed arguments are valid.
+ * If the arguments are invalid, it will display an error message and exit the program.
+ * It will also set the default value for the "depth" argument if it is missing.
+*/
 export function checkArgs(ARGS) {
     /* Display help message */
     if (ARGS['help'] !== undefined || ARGS['h'] !== undefined) {

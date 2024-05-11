@@ -1,6 +1,34 @@
-import { messageSuccess } from '../utils/messages.js';
 
-export function listObject(startType, target, targetType, depth, ARGS, visited = new WeakSet(), name) {
+const uniqueProps = new Set();
+
+/**
+ * List all properties and methods of the startType object, and filter by target and targetType.
+ * @param {*Object} startType 
+ * @param {String} target 
+ * @param {String} targetType 
+ * @param {Number} depth
+ * @param {WeakSet} visited 
+ * @param {String} name 
+ * @return {Set} uniqueProps
+ * @description
+ * This function will list all properties and methods of the startType object, and filter by target and targetType.
+ * It will return a Set of unique properties and methods.
+ * The depth parameter will limit the depth of the search.
+ * The visited parameter is a WeakSet to keep track of visited objects.
+ * The name parameter is the name of the object.
+ * @example
+ * const type = {};
+ * const target = 'constructor';
+ * const targetType = 'function';
+ * const depth = 5;
+ * const visited = new WeakSet();
+ * const name = '{}';
+ * const uniqueProps = listObject(type, target, targetType, depth, visited, name);
+ * uniqueProps.forEach(prop => {
+ *    console.log(prop);
+ * });
+ */
+export function listObject(startType, target, targetType, depth, visited, name) {
     if (depth == 0) {
         return;
     }
@@ -11,8 +39,6 @@ export function listObject(startType, target, targetType, depth, ARGS, visited =
         currentObj = Object(startType);
     }
 
-    const uniqueProps = new Set();
-
     if (visited.has(currentObj)) {
         return;
     }
@@ -21,11 +47,12 @@ export function listObject(startType, target, targetType, depth, ARGS, visited =
 
     while (currentObj) {
         Object.getOwnPropertyNames(currentObj).forEach(prop => {
+            // Disable ES6+ error
             if (prop === 'caller' || prop === 'callee' || prop === 'arguments') {
                 return;
             }
             if (prop === target && typeof currentObj[prop] === targetType) {
-                uniqueProps.add(prop);
+                uniqueProps.add(`${String(name)}.${target}`);
             }
 
             const propertyValue = currentObj[prop];
@@ -34,13 +61,11 @@ export function listObject(startType, target, targetType, depth, ARGS, visited =
                 && propertyValue !== null
                 && propertyValue !== startType
             ) {
-                listObject(propertyValue, target, targetType, depth - 1, ARGS, visited, `${name}.${prop}`)
+                listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`)
             }
         });
         currentObj = Object.getPrototypeOf(currentObj);
     }
-  
-    uniqueProps.forEach(prop => {
-        messageSuccess(`${String(name)}.${prop}`);
-    });
+
+    return uniqueProps;
 }
