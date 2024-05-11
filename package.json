@@ -1,7 +1,8 @@
 {
     "type": "module",
     "scripts": {
-        "start": "node ./src/index.js --help"
+        "start": "node ./src/index.js --help",
+        "lint": "eslint ./src"
     },
     "bin": {
         "object-walker-js": "./src/index.js"
@@ -10,7 +11,6 @@
     "version": "1.0.9",
     "description": "Object-Walker-Js is a simple command that lets you search for any object in any other object. Without dependencies, it is a simple and efficient tool to search for objects in objects.",
     "main": "./src/index.js",
-    "dependencies": {},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MisTraleuh/Object-Walker-Js.git"
@@ -20,5 +20,10 @@
     "bugs": {
         "url": "https://github.com/MisTraleuh/Object-Walker-Js/issues"
     },
-    "homepage": "https://github.com/MisTraleuh/Object-Walker-Js#readme"
+    "homepage": "https://github.com/MisTraleuh/Object-Walker-Js#readme",
+    "devDependencies": {
+        "@eslint/js": "^9.2.0",
+        "eslint": "^9.2.0",
+        "globals": "^15.2.0"
+    }
 }

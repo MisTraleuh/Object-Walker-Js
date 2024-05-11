@@ -1,4 +1,5 @@
 import { Colors } from "./colors.js";
+import { process } from 'node:process';
 
 /**
  * @returns {void} Nothing.

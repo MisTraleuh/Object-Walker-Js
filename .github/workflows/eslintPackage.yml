@@ -1,4 +1,4 @@
-name: Build Package CI/CD Workflow
+name: EsLint Package CI/CD Workflow
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  install-and-lint:
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,9 +16,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Object-Walker
-      run: npm install object-walker-js
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Lint with ESLint
+      run: npm run lint
+

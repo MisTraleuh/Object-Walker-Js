@@ -1,3 +1,4 @@
+import { process } from 'node:process';
 
 /**
  * Parses the command line arguments and returns an object with the keys being the argument names and the values being the argument values.
