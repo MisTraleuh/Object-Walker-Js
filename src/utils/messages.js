@@ -1,5 +1,5 @@
 import { Colors } from "./colors.js";
-import { process } from 'node:process';
+import process from 'process';
 
 /**
  * @param {String} message 

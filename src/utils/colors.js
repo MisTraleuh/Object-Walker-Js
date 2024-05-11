@@ -1,4 +1,4 @@
-import { process } from 'node:process';
+import process from 'process';
 
 /**
  * Colors for console output
