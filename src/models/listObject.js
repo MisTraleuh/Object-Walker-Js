@@ -9,7 +9,8 @@ const uniqueProps = new Set();
  * @param {String} targetType 
  * @param {Number} depth
  * @param {WeakSet} visited 
- * @param {String} name 
+ * @param {String} name
+ * @param {Boolean} displayTypeError
  * @return {Set} uniqueProps
  * @description
  * This function will list all properties and methods of the startType object, and filter by target and targetType.
@@ -24,12 +25,13 @@ const uniqueProps = new Set();
  * const depth = 5;
  * const visited = new WeakSet();
  * const name = '{}';
- * const uniqueProps = listObject(type, target, targetType, depth, visited, name);
+ * const displayTypeError = false;
+ * const uniqueProps = listObject(type, target, targetType, depth, visited, name, displayTypeError);
  * uniqueProps.forEach(prop => {
  *    console.log(prop);
  * });
  */
-export function listObject(startType, target, targetType, depth, visited, name) {
+export function listObject(startType, target, targetType, depth, visited, name, displayTypeError) {
     if (depth == 0) {
         return;
     }
@@ -48,7 +50,6 @@ export function listObject(startType, target, targetType, depth, visited, name) 
 
     while (currentObj !== null && currentObj !== undefined) {
         try {
-
             Object.getOwnPropertyNames(currentObj).forEach(prop => {
                 // Disable ES6+ error
                 if (prop === 'caller' || prop === 'callee' || prop === 'arguments') {
@@ -58,19 +59,21 @@ export function listObject(startType, target, targetType, depth, visited, name) 
                 if (prop === target && typeof currentObj[prop] === targetType) {
                     uniqueProps.add(`${String(name)}.${target}`);
                 }
-                
+
                 const propertyValue = currentObj[prop];
                 
                 if ((typeof propertyValue === 'object' || typeof propertyValue === 'function') 
                     && propertyValue !== null
-                && propertyValue !== startType
-            ) {
-                listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`)
-            }
-        });
-        currentObj = Object.getPrototypeOf(currentObj);
+                    && propertyValue !== startType
+                ) {
+                    listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`, displayTypeError);
+                }
+            });
+            currentObj = Object.getPrototypeOf(currentObj);
         } catch (error) {
-            messageWarning(error);
+            if (displayTypeError === true) {
+                messageWarning(error);
+            }
             return;
         }
     }

@@ -13,11 +13,13 @@ import process from 'process';
 export function displayHelp() {
     const helpMessage = `${Colors.CYAN}Usage: node index.js [options]${Colors.RESET}
 Options:
-    --h, --help         Display help
-    --type              Type of source object
-    --target            Target object
-    --targetType        Target type of object target
-    --depth             Depth of the search (default: 5)`;
+    --h, --help           Display help
+    --type                Type of source object
+    --target              Target object
+    --targetType          Target type of object target, must be:
+                          object, function, string, number, boolean, symbol, bigint
+    --depth               Depth of the search (default: 5)
+    --disable-TypeError   Disable TypeError message`;
 
     console.log(helpMessage);
     process.exit(0);

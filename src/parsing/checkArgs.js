@@ -6,6 +6,7 @@ const validArgs = [
     "target",
     "targetType",
     "depth",
+    "disable-TypeError",
 ];
 
 const validTypes = [
@@ -59,6 +60,7 @@ export function checkArgs(ARGS) {
         messageWarning('Setting default value: 5');
         ARGS['depth'] = 5;
     }
+    ARGS['disable-TypeError'] === undefined ? true : false;
 
     /* Check for unknown arguments */
     Object.keys(ARGS).forEach(key => {

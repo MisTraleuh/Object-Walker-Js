@@ -16,8 +16,8 @@ async function main() {
     const { type, target, targetType, depth } = await createObject(ARGS);
     const visited = new WeakSet();
     const name = ARGS.type;
-    const uniqueProps = listObject(type, target, targetType, depth, visited, name);
-
+    const displayTypeError = ARGS['disable-TypeError'];
+    const uniqueProps = listObject(type, target, targetType, depth, visited, name, displayTypeError);
 
     messageInfo(`--- Properties and methods of ${String(ARGS.type)} ---`);
     uniqueProps.forEach(prop => {
