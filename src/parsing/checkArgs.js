@@ -17,6 +17,7 @@ const validTypes = [
     "boolean",
     "symbol",
     "bigint",
+    "any",
 ];
 
 /**
@@ -50,7 +51,7 @@ export function checkArgs(ARGS) {
     if (validTypes.includes(ARGS['targetType']) === false) {
         messageError('Invalid argument: "targetType" must be a valid type');
     }
-    
+
     /* Check for optional arguments */
     if (ARGS['depth'] !== undefined && isNaN(Number.parseInt(ARGS['depth'])) === true) {
         messageError('Invalid argument: "depth" must be a number');

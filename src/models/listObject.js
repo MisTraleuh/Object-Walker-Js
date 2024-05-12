@@ -1,10 +1,11 @@
 import { messageWarning } from "../utils/messages.js";
+import { filterProps } from "./filterProps.js";
 
 const uniqueProps = new Set();
 
 /**
  * List all properties and methods of the startType object, and filter by target and targetType.
- * @param {*Object} startType 
+ * @param {Object} startType 
  * @param {String} target 
  * @param {String} targetType 
  * @param {Number} depth
@@ -50,31 +51,15 @@ export function listObject(startType, target, targetType, depth, visited, name, 
 
     while (currentObj !== null && currentObj !== undefined) {
         try {
-            Object.getOwnPropertyNames(currentObj).forEach(prop => {
-                // Disable ES6+ error
-                if (prop === 'caller' || prop === 'callee' || prop === 'arguments') {
-                    return;
-                }
-                
-                if (prop === target && typeof currentObj[prop] === targetType) {
-                    uniqueProps.add(`${String(name)}.${target}`);
-                }
-
-                const propertyValue = currentObj[prop];
-                
-                if ((typeof propertyValue === 'object' || typeof propertyValue === 'function') 
-                    && propertyValue !== null
-                    && propertyValue !== startType
-                ) {
-                    listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`, displayTypeError);
-                }
+            Object.getOwnPropertyNames(currentObj).forEach((prop) => {
+                new filterProps(uniqueProps, currentObj, startType, prop, target, targetType, depth, visited, name, displayTypeError);
             });
             currentObj = Object.getPrototypeOf(currentObj);
         } catch (error) {
             if (displayTypeError === true) {
                 messageWarning(error);
             }
-            return;
+            return uniqueProps;
         }
     }
 
