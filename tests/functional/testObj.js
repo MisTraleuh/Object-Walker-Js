@@ -104,9 +104,6 @@ let TEST_NAME = fileURLToPath(import.meta.url).split("/").pop();
 let ARGS = [FILEPATH, "--type", "({})", "--target", '__proto__', "--targetType", "object" , "--depth", "50"];
 let INTERPRETER = `node`;
 
-const findFirstDiff = (str1, str2) =>
-    str2[[...str1].findIndex((el, index) => el !== str2[index])];
-
 export async function run() {
     const ls = spawn(INTERPRETER, ARGS, { shell: false });
     let output = "";
