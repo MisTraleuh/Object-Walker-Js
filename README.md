@@ -47,6 +47,11 @@ Options:
 
 ## Exemple 🎁
 
+> [!TIP]
+> The `--target` is evaluated with the `eval` function, so you can use any valid JavaScript expression.
+
+### Type Object 🪙
+
 ```sh
 $ node ./src/index.js --type '({})' --target '__proto__' --targetType "object"  --depth 50
 --- Properties and methods of ({}) ---
@@ -92,3 +97,21 @@ $ node ./src/index.js --type '({})' --target '__proto__' --targetType "object"  
 [+] ({}).constructor.__proto__
 [+] ({}).__proto__
 ```
+
+### Type Module 📦
+
+```sh
+$ node ./src/index.js --type 'import("fs")' --target 'toString' --targetType "function"  --depth 500
+[/] --- Properties and methods of import("fs") ---
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.toString
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.toString        
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.__defineSetter__.toString
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.__defineSetter__.hasOwnProperty.toString
+[+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.__defineSetter__.hasOwnProperty.__lookupGetter__.toString
+[...]
+```
+
+## License 📜
+
+[MIT License](./LICENSE)
