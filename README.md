@@ -1,9 +1,21 @@
-# ObjectWalker - Js 🚶‍♂️
+<p align="center">
+    <h1 align="center"> ObjectWalker - Js 🚶‍♂️ </h1>
+</p>
 
-[![npm version](https://img.shields.io/npm/v/object-walker-js.svg)](https://www.npmjs.com/package/object-walker-js)
-[![npm](https://img.shields.io/npm/dm/object-walker-js.svg)](https://npmcharts.com/compare/object-walker-js?minimal=true)
-[![GitHub license](https://img.shields.io/github/license/MisTraleuh/object-walker-js.svg)](https://github.com/MisTraleuh/object-walker-js/blob/master/LICENSE)
-[![Build Status](https://github.com/MisTraleuh/object-walker-js/actions/workflows/buildPackage.yml/badge.svg)](https://github.com/MisTraleuh/object-walker-js/actions)
+<p align="center">
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/object-walker-js">
+    <img src="https://img.shields.io/npm/v/object-walker-js.svg">
+  </a>
+  <a aria-label="NPM download" href="https://npmcharts.com/compare/object-walker-js?minimal=true">
+    <img alt="" src="https://img.shields.io/npm/dm/object-walker-js.svg">
+  </a>
+  <a aria-label="License" href="https://github.com/MisTraleuh/object-walker-js/blob/master/LICENSE">
+    <img alt="" src="https://img.shields.io/github/license/MisTraleuh/object-walker-js.svg">
+  </a>
+  <a aria-label="Build Status" href="(https://github.com/MisTraleuh/object-walker-js/actions">
+    <img alt="" src="https://github.com/MisTraleuh/object-walker-js/actions/workflows/buildPackage.yml/badge.svg">
+  </a>
+</p>
 
 ## Description 📝
 
