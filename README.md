@@ -69,7 +69,7 @@ Options:
 ### Type Object 🪙
 
 ```sh
-$ node ./src/index.js --type '({})' --target '__proto__' --targetType "object"  --depth 50
+$ object-walker-js --type '({})' --target '__proto__' --targetType "object" --depth 50
 --- Properties and methods of ({}) ---
 [+] ({}).constructor.prototype.__defineGetter__.constructor.prototype.apply.bind.call.toString.__defineSetter__.hasOwnProperty.__lookupGetter__.__lookupSetter__.isPrototypeOf.propertyIsEnumerable.toString.valueOf.toLocaleString.__proto__
 [+] ({}).constructor.prototype.__defineGetter__.constructor.prototype.apply.bind.call.toString.__defineSetter__.hasOwnProperty.__lookupGetter__.__lookupSetter__.isPrototypeOf.propertyIsEnumerable.toString.valueOf.__proto__
@@ -117,7 +117,7 @@ $ node ./src/index.js --type '({})' --target '__proto__' --targetType "object"  
 ### Type Module 📦
 
 ```sh
-$ node ./src/index.js --type 'import("fs")' --target 'toString' --targetType "function"  --depth 500
+$ object-walker-js --type 'import("fs")' --target 'toString' --targetType "function" --depth 500
 [/] --- Properties and methods of import("fs") ---
 [+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString
 [+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.toString
