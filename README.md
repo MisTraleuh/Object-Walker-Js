@@ -1,12 +1,16 @@
+
 <p align="center">
-    <h1 align="center"> ObjectWalker - Js 🚶‍♂️ </h1>
+  <a aria-label="Logo" href="https://www.npmjs.com/package/object-walker-js">
+    <img src="https://i.ibb.co/3sZb236/Logo-Object-Walker.png">
+  </a>
+  <h1 align="center"> ObjectWalker - Js 🚶‍♂️ </h1>
 </p>
 
 <p align="center">
   <a aria-label="NPM version" href="https://www.npmjs.com/package/object-walker-js">
     <img src="https://img.shields.io/npm/v/object-walker-js.svg">
   </a>
-  <a aria-label="NPM download" href="https://npmcharts.com/compare/object-walker-js?minimal=true">
+  <a aria-label="NPM download" href="https://www.npmjs.com/package/object-walker-js">
     <img alt="" src="https://img.shields.io/npm/dm/object-walker-js.svg">
   </a>
   <a aria-label="License" href="https://github.com/MisTraleuh/object-walker-js/blob/master/LICENSE">
@@ -35,7 +39,7 @@ Options:
     --type                Type of source object
     --target              Target object
     --targetType          Target type of object target, must be:
-                          object, function, string, number, boolean, symbol, bigint
+                          object, function, string, number, boolean, symbol, bigint, any
     --depth               Depth of the search (default: 5)
     --disable-TypeError   Disable TypeError message
 ```
@@ -52,7 +56,7 @@ Options:
     --type                Type of source object
     --target              Target object
     --targetType          Target type of object target, must be:
-                          object, function, string, number, boolean, symbol, bigint
+                          object, function, string, number, boolean, symbol, bigint, any
     --depth               Depth of the search (default: 5)
     --disable-TypeError   Disable TypeError message
 ```

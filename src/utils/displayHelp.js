@@ -17,7 +17,7 @@ Options:
     --type                Type of source object
     --target              Target object
     --targetType          Target type of object target, must be:
-                          object, function, string, number, boolean, symbol, bigint
+                          object, function, string, number, boolean, symbol, bigint, any
     --depth               Depth of the search (default: 5)
     --disable-TypeError   Disable TypeError message`;
 
