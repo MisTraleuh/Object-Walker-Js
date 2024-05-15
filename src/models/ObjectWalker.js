@@ -27,12 +27,12 @@ const uniqueProps = new Set();
  * const visited = new WeakSet();
  * const name = '{}';
  * const displayTypeError = false;
- * const uniqueProps = listObject(type, target, targetType, depth, visited, name, displayTypeError);
+ * const uniqueProps = ObjectWalker(type, target, targetType, depth, visited, name, displayTypeError);
  * uniqueProps.forEach(prop => {
  *    console.log(prop);
  * });
  */
-export function listObject(startType, target, targetType, depth, visited, name, displayTypeError) {
+export function ObjectWalker(startType, target, targetType, depth, visited, name, displayTypeError) {
     if (depth == 0) {
         return;
     }

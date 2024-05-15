@@ -1,4 +1,4 @@
-import { listObject } from './listObject.js';
+import { ObjectWalker } from './ObjectWalker.js';
 
 const filterPropsES6Error = [
     'caller', 'callee', 'arguments',
@@ -45,6 +45,6 @@ export function filterProps(uniqueProps, currentObj, startType, prop, target, ta
     const propertyValue = currentObj[prop];
 
     if (filterTypeProps.includes(typeof propertyValue) && propertyValue !== null && propertyValue !== startType) {
-        listObject(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`, displayTypeError);
+        ObjectWalker(propertyValue, target, targetType, depth - 1, visited, `${name}.${prop}`, displayTypeError);
     }
 }

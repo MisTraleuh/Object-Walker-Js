@@ -3,10 +3,10 @@
 import { parseArgs } from './parsing/parseArgs.js';
 import { checkArgs } from './parsing/checkArgs.js';
 import { createObject } from './models/createObject.js';
-import { listObject } from './models/listObject.js';
+import { ObjectWalker } from './models/ObjectWalker.js';
 import { messageInfo, messageSuccess } from './utils/messages.js';
 import process from 'node:process';
-export { listObject } from './models/listObject.js';
+export { ObjectWalker } from './models/ObjectWalker.js';
 
 /**
  * Main function of the program.
@@ -19,7 +19,7 @@ async function main() {
     const visited = new WeakSet();
     const name = ARGS.type;
     const displayTypeError = ARGS['disable-TypeError'];
-    const uniqueProps = listObject(type, target, targetType, depth, visited, name, displayTypeError);
+    const uniqueProps = ObjectWalker(type, target, targetType, depth, visited, name, displayTypeError);
 
     messageInfo(`--- Properties and methods of ${String(ARGS.type)} ---`);
     uniqueProps.forEach(prop => {

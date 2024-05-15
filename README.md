@@ -31,6 +31,14 @@ Object-Walker-Js is a simple command that lets you search for any object in any 
 
 ```bash
 $ npm install object-walker-js
+```
+
+### Binary 📦
+
+#### Local 🏠
+
+```bash
+$ npm install object-walker-js
 [...]
 $ ./node_modules/.bin/object-walker-js --help
 Usage: node index.js [options]
@@ -44,7 +52,7 @@ Options:
     --disable-TypeError   Disable TypeError message
 ```
 
-### Binary 📦
+### Global 🌐
 
 ```bash
 $ sudo npm install -g object-walker-js
@@ -63,10 +71,12 @@ Options:
 
 ## Exemple 🎁
 
+### Binary 🏹
+
 > [!TIP]
 > The `--target` is evaluated with the `eval` function, so you can use any valid JavaScript expression.
 
-### Type Object 🪙
+#### Type Object 🪙
 
 ```sh
 $ object-walker-js --type '({})' --target '__proto__' --targetType "object" --depth 50
@@ -114,7 +124,7 @@ $ object-walker-js --type '({})' --target '__proto__' --targetType "object" --de
 [+] ({}).__proto__
 ```
 
-### Type Module 📦
+#### Type Module 📦
 
 ```sh
 $ object-walker-js --type 'import("fs")' --target 'toString' --targetType "function" --depth 500
@@ -126,6 +136,24 @@ $ object-walker-js --type 'import("fs")' --target 'toString' --targetType "funct
 [+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.__defineSetter__.hasOwnProperty.toString
 [+] import("fs").Dir.prototype.read.constructor.prototype.apply.bind.call.toString.constructor.prototype.__defineGetter__.__defineSetter__.hasOwnProperty.__lookupGetter__.toString
 [...]
+```
+
+### Library 📚
+
+```js
+import { ObjectWalker } from 'object-walker-js';
+
+const type = {};
+const target = 'constructor';
+const targetType = 'function';
+const depth = 5;
+const visited = new WeakSet();
+const name = '{}';
+const displayTypeError = false;
+const uniqueProps = ObjectWalker(type, target, targetType, depth, visited, name, displayTypeError);
+uniqueProps.forEach(prop => {
+   console.log(prop);
+});
 ```
 
 ## License 📜
