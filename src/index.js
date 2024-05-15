@@ -5,6 +5,8 @@ import { checkArgs } from './parsing/checkArgs.js';
 import { createObject } from './models/createObject.js';
 import { listObject } from './models/listObject.js';
 import { messageInfo, messageSuccess } from './utils/messages.js';
+import process from 'node:process';
+export { listObject } from './models/listObject.js';
 
 /**
  * Main function of the program.
@@ -25,5 +27,14 @@ async function main() {
     });
 }
 
-main();
+function isMain() {
+    if (process.platform === "win32") {
+        return import.meta.url === `file:///${process.argv[1].replace(/\\/g, "/")}`;
+    } else {
+        return import.meta.url === `file://${process.argv[1]}`;
+    }
+}
 
+if (isMain()) {
+    main();
+}
