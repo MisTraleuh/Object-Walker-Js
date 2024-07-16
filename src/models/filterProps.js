@@ -40,6 +40,8 @@ export function filterProps(uniqueProps, currentObj, startType, prop, target, ta
         uniqueProps.add(`${String(name)}.${target}`);
     } else if (prop === target && targetType === 'any') {
         uniqueProps.add(`${String(name)}.${target}`);
+    } else if (target === 'any' && targetType === 'any') {
+        uniqueProps.add(`${String(name)}.${prop}`);
     }
 
     const propertyValue = currentObj[prop];

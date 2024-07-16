@@ -15,7 +15,7 @@ export function displayHelp() {
 Options:
     --h, --help           Display help
     --type                Type of source object
-    --target              Target object
+    --target              Target object (can be 'any')
     --targetType          Target type of object target, must be:
                           object, function, string, number, boolean, symbol, bigint, any
     --depth               Depth of the search (default: 5)
