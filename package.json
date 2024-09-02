@@ -9,7 +9,7 @@
         "object-walker-js": "./src/binary.js"
     },
     "name": "object-walker-js",
-    "version": "1.1.11",
+    "version": "1.2.0",
     "description": "Object-Walker-Js is a simple command that lets you search for any object in any other object. Without dependencies, it is a simple and efficient tool to search for objects in objects.",
     "main": "./src/binary.js",
     "exports": {
