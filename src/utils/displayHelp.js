@@ -11,7 +11,7 @@ import process from 'process';
  * The help message will display the usage of the program.
 */
 export function displayHelp() {
-    const helpMessage = `${Colors.CYAN}Usage: node index.js [options]${Colors.RESET}
+    const helpMessage = `${Colors.CYAN}Usage: ${process.argv[1]} [options]${Colors.RESET}
 Options:
     --h, --help           Display help
     --type                Type of source object
