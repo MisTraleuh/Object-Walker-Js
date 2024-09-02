@@ -2,6 +2,8 @@
 
 import { parseArgs, checkArgs, createObject, ObjectWalker, messageInfo, messageSuccess } from './index.js';
 
+export { ObjectWalker };
+
 /**
  * Main function of the program.
  * @returns {void} Nothing.
